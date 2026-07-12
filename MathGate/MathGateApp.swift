@@ -1,32 +1,25 @@
-//
-//  MathGateApp.swift
-//  MathGate
-//
-//  Created by Levi Monte on 6/23/26.
-//
-
 import SwiftUI
-import SwiftData
 
 @main
 struct MathGateApp: App {
-    var sharedModelContainer: ModelContainer = {
-        let schema = Schema([
-            Item.self,
-        ])
-        let modelConfiguration = ModelConfiguration(schema: schema, isStoredInMemoryOnly: false)
+    @StateObject private var screenTime  = ScreenTimeManager()
+    @StateObject private var streaks     = StreakManager()
+    @StateObject private var progress    = UserProgress()
 
-        do {
-            return try ModelContainer(for: schema, configurations: [modelConfiguration])
-        } catch {
-            fatalError("Could not create ModelContainer: \(error)")
-        }
-    }()
+    @AppStorage("mg_hasSeenOnboarding") private var hasSeenOnboarding = false
 
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .environmentObject(screenTime)
+                .environmentObject(streaks)
+                .environmentObject(progress)
+                .fullScreenCover(isPresented: Binding(
+                    get: { !hasSeenOnboarding },
+                    set: { _ in }
+                )) {
+                    OnboardingView { hasSeenOnboarding = true }
+                }
         }
-        .modelContainer(sharedModelContainer)
     }
 }
