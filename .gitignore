@@ -44,3 +44,4 @@ Thumbs.db
 Secrets.swift
 *.p12
 *.mobileprovision
+push_to_github.sh

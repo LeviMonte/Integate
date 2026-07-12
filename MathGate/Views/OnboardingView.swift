@@ -1,6 +1,6 @@
 //
 //  OnboardingView.swift
-//  MathGate
+//  Integate
 //
 
 import SwiftUI
@@ -20,7 +20,7 @@ struct OnboardingView: View {
     private let pages: [PageData] = [
         PageData(
             icon: "🧮",
-            title: "Welcome to MathGate",
+            title: "Welcome to Integate",
             body: "No math, no scroll. Solve problems to earn screen time — the harder the math, the more time you unlock.",
             accent: .indigo
         ),

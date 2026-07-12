@@ -1,7 +1,8 @@
 import SwiftUI
+import FamilyControls
 
 @main
-struct MathGateApp: App {
+struct IntegateApp: App {
     @StateObject private var screenTime  = ScreenTimeManager()
     @StateObject private var streaks     = StreakManager()
     @StateObject private var progress    = UserProgress()
@@ -19,6 +20,10 @@ struct MathGateApp: App {
                     set: { _ in }
                 )) {
                     OnboardingView { hasSeenOnboarding = true }
+                }
+                .task {
+                    // Refresh authorization status each launch (in case user changed it in Settings)
+                    screenTime.refreshAuthorizationStatus()
                 }
         }
     }

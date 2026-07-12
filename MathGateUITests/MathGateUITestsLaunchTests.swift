@@ -1,13 +1,13 @@
 //
-//  MathGateUITestsLaunchTests.swift
-//  MathGateUITests
+//  IntegateUITestsLaunchTests.swift
+//  IntegateUITests
 //
 //  Created by Levi Monte on 6/23/26.
 //
 
 import XCTest
 
-final class MathGateUITestsLaunchTests: XCTestCase {
+final class IntegateUITestsLaunchTests: XCTestCase {
 
     override class var runsForEachTargetApplicationUIConfiguration: Bool {
         true

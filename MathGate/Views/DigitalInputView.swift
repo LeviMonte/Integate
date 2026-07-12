@@ -1,6 +1,6 @@
 //
 //  DigitalInputView.swift
-//  MathGate
+//  Integate
 //
 
 import SwiftUI

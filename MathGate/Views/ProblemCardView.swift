@@ -1,6 +1,6 @@
 //
 //  ProblemCardView.swift
-//  MathGate
+//  Integate
 //
 
 import SwiftUI

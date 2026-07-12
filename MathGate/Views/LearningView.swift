@@ -1,6 +1,6 @@
 //
 //  LearningView.swift
-//  MathGate
+//  Integate
 //
 
 import SwiftUI

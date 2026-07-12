@@ -1,13 +1,13 @@
 //
-//  MathGateUITests.swift
-//  MathGateUITests
+//  IntegateUITests.swift
+//  IntegateUITests
 //
 //  Created by Levi Monte on 6/23/26.
 //
 
 import XCTest
 
-final class MathGateUITests: XCTestCase {
+final class IntegateUITests: XCTestCase {
 
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.

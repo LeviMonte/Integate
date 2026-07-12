@@ -1,6 +1,6 @@
 //
 //  UserProgress.swift
-//  MathGate
+//  Integate
 //
 
 import Foundation

@@ -1,6 +1,6 @@
 //
 //  UnlockView.swift
-//  MathGate
+//  Integate
 //
 
 import SwiftUI
@@ -47,6 +47,11 @@ struct UnlockView: View {
 
                 ScrollView {
                         VStack(spacing: 20) {
+                            // Shown when user tapped "Open Integate →" on a shield screen
+                            // Hide once they start solving — no need to nag mid-problem
+                            if screenTime.hasPendingUnlockRequest && phase == .idle {
+                                pendingUnlockBanner
+                            }
                             if screenTime.timeRemainingSeconds > 0 {
                                 timeRemainingBanner
                             }
@@ -65,7 +70,7 @@ struct UnlockView: View {
                         .padding()
                 }
             }
-            .onChange(of: selectedSubjectRaw) { _ in
+            .onChange(of: selectedSubjectRaw) {
                 // Exit any active problem when the subject changes
                 if phase != .idle {
                     withAnimation { phase = .idle }
@@ -73,7 +78,7 @@ struct UnlockView: View {
                     showHint = false
                 }
             }
-            .navigationTitle("MathGate")
+            .navigationTitle("Integate")
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 if showTimeOfDay {
@@ -137,6 +142,107 @@ struct UnlockView: View {
     }
 
     // MARK: - Banners
+
+    /// Shows when the user tapped "Open Integate →" on a blocked-app shield.
+    private var pendingUnlockBanner: some View {
+        VStack(alignment: .leading, spacing: 12) {
+            // Header
+            HStack(spacing: 10) {
+                Image(systemName: "lock.app.dashed")
+                    .font(.title2).foregroundStyle(.indigo)
+                VStack(alignment: .leading, spacing: 2) {
+                    Text("App locked — solve to unlock")
+                        .font(.headline)
+                    Text("Defaulting to your highest difficulty. Change below if you want.")
+                        .font(.caption).foregroundStyle(.secondary)
+                }
+            }
+
+            // Quick subject picker
+            ScrollView(.horizontal, showsIndicators: false) {
+                HStack(spacing: 8) {
+                    ForEach(MathSubject.allCases, id: \.rawValue) { subject in
+                        Button {
+                            selectedSubjectRaw = subject.rawValue
+                        } label: {
+                            Text("\(subject.icon) \(subject.shortName)")
+                                .font(.caption.weight(.medium))
+                                .padding(.horizontal, 12).padding(.vertical, 6)
+                                .background(
+                                    selectedSubject == subject
+                                        ? subject.color.opacity(0.2)
+                                        : Color.gray.opacity(0.08),
+                                    in: Capsule()
+                                )
+                                .foregroundStyle(selectedSubject == subject ? subject.color : .secondary)
+                                .overlay(
+                                    Capsule().strokeBorder(
+                                        selectedSubject == subject ? subject.color.opacity(0.4) : Color.clear,
+                                        lineWidth: 1
+                                    )
+                                )
+                        }
+                        .buttonStyle(.plain)
+                    }
+                }
+            }
+
+            // Quick level picker
+            HStack(spacing: 8) {
+                ForEach(MathLevel.allCases, id: \.rawValue) { level in
+                    let unlocked = progress.isUnlocked(level, for: selectedSubject)
+                    Button {
+                        guard unlocked else { return }
+                        selectedLevel = level
+                    } label: {
+                        VStack(spacing: 2) {
+                            Text(level.emoji).font(.system(size: 14))
+                            Text(level.displayName)
+                                .font(.system(size: 10, weight: .medium))
+                        }
+                        .frame(maxWidth: .infinity)
+                        .padding(.vertical, 8)
+                        .background(
+                            selectedLevel == level && unlocked
+                                ? Color.indigo.opacity(0.15)
+                                : Color.gray.opacity(0.06),
+                            in: RoundedRectangle(cornerRadius: 8)
+                        )
+                        .foregroundStyle(
+                            !unlocked ? Color.secondary.opacity(0.4)
+                                : selectedLevel == level ? Color.indigo
+                                : Color.secondary
+                        )
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 8).strokeBorder(
+                                selectedLevel == level && unlocked ? Color.indigo.opacity(0.4) : Color.clear,
+                                lineWidth: 1
+                            )
+                        )
+                    }
+                    .buttonStyle(.plain)
+                    .disabled(!unlocked)
+                }
+            }
+
+            // Solve button — picks highest unlocked if current is locked
+            Button {
+                let best = [MathLevel.expert, .advanced, .intermediate, .basic]
+                    .first { progress.isUnlocked($0, for: selectedSubject) } ?? .basic
+                selectedLevel = best
+                startNewProblem()
+            } label: {
+                Label("Solve Now →", systemImage: "function")
+                    .font(.subheadline.weight(.semibold))
+                    .frame(maxWidth: .infinity)
+            }
+            .buttonStyle(.borderedProminent)
+            .tint(.indigo)
+        }
+        .padding()
+        .background(Color.indigo.opacity(0.06), in: RoundedRectangle(cornerRadius: 16))
+        .overlay(RoundedRectangle(cornerRadius: 16).strokeBorder(Color.indigo.opacity(0.2), lineWidth: 1))
+    }
 
     private var timeRemainingBanner: some View {
         HStack {

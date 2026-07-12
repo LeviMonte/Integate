@@ -1,6 +1,6 @@
 //
 //  LearningContent.swift
-//  MathGate
+//  Integate
 //
 //  All learning topic data — kept separate from UI so views stay lean.
 //

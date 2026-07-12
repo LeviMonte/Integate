@@ -1,11 +1,12 @@
 //
 //  ContentView.swift
-//  MathGate
+//  Integate
 //
 //  Created by Levi Monte on 6/23/26.
 //
 
 import SwiftUI
+import FamilyControls
 
 struct ContentView: View {
     @EnvironmentObject var screenTime: ScreenTimeManager
@@ -72,7 +73,7 @@ struct SettingsView: View {
                 // ── Time Cap ──────────────────────────────
                 Section {
                     VStack(alignment: .leading, spacing: 10) {
-                        Text("Daily Time Cap")
+                        Text("Max time earned per session")
                             .font(.subheadline.weight(.semibold))
                         HStack(spacing: 8) {
                             ForEach(capOptions, id: \.self) { cap in
@@ -95,9 +96,9 @@ struct SettingsView: View {
                     }
                     .padding(.vertical, 4)
                 } header: {
-                    Text("Time Cap")
+                    Text("Session Limit")
                 } footer: {
-                    Text("Maximum time that can accumulate per session. Doesn't cut existing earned time.")
+                    Text("How much time can stack up from solving problems in one session. Won't cut time you've already earned.")
                 }
 
                 // ── Display ───────────────────────────────
@@ -108,39 +109,35 @@ struct SettingsView: View {
                     .tint(.indigo)
                 }
 
-                // ── Apps I commit to limit ─────────────────
-                Section("Apps I Commit to Limit") {
+                // ── App Blocking ──────────────────────────
+                Section("App Blocking") {
                     Button {
                         showAppPicker = true
                     } label: {
                         HStack {
-                            Image(systemName: "square.and.pencil").foregroundStyle(.indigo)
-                            Text(screenTime.blockedAppNames.isEmpty ? "Add apps…" : "Edit list")
-                            Spacer()
-                            if !screenTime.blockedAppNames.isEmpty {
-                                Text("\(screenTime.blockedAppNames.count) app\(screenTime.blockedAppNames.count == 1 ? "" : "s")")
-                                    .font(.caption).foregroundStyle(.secondary)
+                            Image(systemName: "lock.app.dashed").foregroundStyle(.indigo)
+                            VStack(alignment: .leading, spacing: 2) {
+                                Text("Manage Blocked Apps")
+                                let apps = screenTime.activitySelection.applicationTokens.count
+                                let cats = screenTime.activitySelection.categoryTokens.count
+                                if apps > 0 || cats > 0 {
+                                    Text("\(apps > 0 ? "\(apps) app\(apps == 1 ? "" : "s")" : "")\(apps > 0 && cats > 0 ? ", " : "")\(cats > 0 ? "\(cats) categor\(cats == 1 ? "y" : "ies")" : "")")
+                                        .font(.caption).foregroundStyle(.secondary)
+                                } else {
+                                    Text("No apps blocked yet")
+                                        .font(.caption).foregroundStyle(.secondary)
+                                }
                             }
+                            Spacer()
                             Image(systemName: "chevron.right").font(.caption).foregroundStyle(.secondary)
                         }
                     }
                     .foregroundStyle(.primary)
 
-                    ForEach(screenTime.blockedAppNames, id: \.self) { name in
-                        Label(name, systemImage: "app.fill")
-                            .foregroundStyle(.secondary).font(.subheadline)
+                    if !screenTime.isAuthorized {
+                        Label("Grant Screen Time permission to enable real blocking", systemImage: "info.circle")
+                            .font(.caption).foregroundStyle(.orange)
                     }
-                }
-
-                // ── Honor System note ──────────────────────
-                Section {
-                    VStack(alignment: .leading, spacing: 8) {
-                        Label("Honor System Mode", systemImage: "hand.raised.fill")
-                            .font(.headline).foregroundStyle(.indigo)
-                        Text("Real app blocking requires Apple's FamilyControls entitlement. For now, MathGate sends a notification when your time expires — the commitment to stay off listed apps is yours.")
-                            .font(.caption).foregroundStyle(.secondary)
-                    }
-                    .padding(.vertical, 4)
                 }
 
                 // ── Danger zone ───────────────────────────
@@ -163,12 +160,13 @@ struct SettingsView: View {
 
                 Section("About") {
                     LabeledContent("Version", value: "1.0")
-                    LabeledContent("Blocking", value: "Notification-based")
+                    LabeledContent("Blocking", value: screenTime.isAuthorized ? "FamilyControls ✓" : "Not authorized")
                 }
             }
             .navigationTitle("Settings")
             .sheet(isPresented: $showAppPicker) {
-                AppPickerView(appNames: $screenTime.blockedAppNames)
+                AppPickerView()
+                    .environmentObject(screenTime)
             }
             .sheet(isPresented: $showReport) {
                 ReportProblemView()

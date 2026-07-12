@@ -1,6 +1,6 @@
 //
 //  MathProblem.swift
-//  MathGate
+//  Integate
 //
 
 import Foundation

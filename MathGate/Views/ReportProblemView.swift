@@ -1,6 +1,6 @@
 //
 //  ReportProblemView.swift
-//  MathGate
+//  Integate
 //
 //  Opens the native iOS mail composer pre-filled with problem context.
 //  The user taps Send themselves — nothing is sent on their behalf.
@@ -23,8 +23,8 @@ struct ReportProblemView: View {
     private let recipient = "Levimonte18@gmail.com"
 
     private var subject: String {
-        guard let p = currentProblem else { return "MathGate — Problem Report" }
-        return "MathGate Report: \(p.displayPrimary)"
+        guard let p = currentProblem else { return "Integate — Problem Report" }
+        return "Integate Report: \(p.displayPrimary)"
     }
 
     private var emailBody: String {

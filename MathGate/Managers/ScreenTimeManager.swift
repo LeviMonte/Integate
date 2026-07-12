@@ -1,78 +1,147 @@
+//
+//  ScreenTimeManager.swift
+//  Integate
+//
+//  Real FamilyControls implementation.
+//  Shields selected apps via ManagedSettingsStore — no honor system needed.
+//  When a shielded app is tapped, the custom shield appears (ShieldConfigurationExtension)
+//  and the user taps "Open Integate →" which signals via App Group UserDefaults.
+//  On launch Integate detects that signal and prompts the user to solve.
+//
+//  REQUIRES in Xcode (main target):
+//    Signing & Capabilities → + Capability → Family Controls
+//    Signing & Capabilities → + Capability → App Groups  →  group.com.levimonte.integate
+//    (use YOUR actual bundle ID prefix — just keep "group." at the front)
+//
+
 import Foundation
+import FamilyControls
+import ManagedSettings
+import DeviceActivity
 import Combine
 import UserNotifications
-
-// MARK: - ScreenTimeManager (Honor System)
-//
-// This version has NO FamilyControls dependency — no special entitlement needed.
-// It tracks earned time and fires a local notification when it expires.
-// The actual app-blocking is on you: apps you list here are just a reminder.
-//
-// When your FamilyControls entitlement is approved, swap this file out for the
-// full version (ScreenTimeManager+FamilyControls.swift) — nothing else changes.
 
 class ScreenTimeManager: ObservableObject {
 
     // MARK: - Published State
 
-    @Published var timeRemainingSeconds: Int = 0
-    @Published var unlockExpiryDate: Date? = nil
-    @Published var isUnlocked: Bool = false
-
-    /// Apps the user has committed to not opening without solving a problem first.
-    @Published var blockedAppNames: [String] {
-        didSet { UserDefaults.standard.set(blockedAppNames, forKey: Keys.blockedAppNames) }
+    @Published var isAuthorized:     Bool = false
+    @Published var activitySelection: FamilyActivitySelection = FamilyActivitySelection() {
+        didSet {
+            saveSelection()
+            if !isUnlocked { applyRestrictions() }
+        }
     }
+    @Published var timeRemainingSeconds: Int  = 0
+    @Published var unlockExpiryDate:    Date? = nil
+    @Published var isUnlocked:          Bool  = false
 
     // MARK: - Private
 
+    private let store = ManagedSettingsStore()
+
+    /// ⚠️ Change this to match your actual Bundle ID prefix
+    let appGroupID = "group.com.levimonte.integate"
+
+    private var sharedDefaults: UserDefaults? { UserDefaults(suiteName: appGroupID) }
     private var countdownTimer: Timer?
     private let notificationCenter = UNUserNotificationCenter.current()
+
+    // MARK: - Keys
+
+    enum Keys {
+        static let selection     = "mg_activitySelection"
+        static let unlockExpiry  = "mg_unlockExpiry"
+        static let pendingUnlock = "mg_pendingUnlock"   // written by ShieldActionExtension
+        static let timeCap       = "mg_timeCap"
+    }
 
     // MARK: - Init
 
     init() {
-        blockedAppNames = UserDefaults.standard.stringArray(forKey: Keys.blockedAppNames) ?? []
-        requestNotificationPermission()
+        loadSelection()
+        refreshAuthorizationStatus()
         resumeIfNeeded()
+        requestNotificationPermission()
     }
 
-    // MARK: - Grant Time
+    // MARK: - Authorization
 
-    /// Maximum accumulation cap in seconds. Reads the user-chosen cap from UserDefaults.
+    func refreshAuthorizationStatus() {
+        isAuthorized = AuthorizationCenter.shared.authorizationStatus == .approved
+    }
+
+    func requestAuthorization() async {
+        do {
+            try await AuthorizationCenter.shared.requestAuthorization(for: .individual)
+            await MainActor.run {
+                self.isAuthorized = true
+                self.applyRestrictions()
+            }
+        } catch {
+            await MainActor.run { self.isAuthorized = false }
+        }
+    }
+
+    // MARK: - Apply / Remove Restrictions
+
+    func applyRestrictions() {
+        guard isAuthorized else { return }
+        let apps = activitySelection.applicationTokens
+        let cats = activitySelection.categoryTokens
+        store.shield.applications          = apps.isEmpty ? nil : apps
+        store.shield.applicationCategories = cats.isEmpty ? nil : .specific(cats)
+    }
+
+    func removeRestrictions() {
+        store.clearAllSettings()
+    }
+
+    // MARK: - Grant Time (call on successful problem solve)
+
     var maxSeconds: Int {
         let saved = UserDefaults.standard.integer(forKey: Keys.timeCap)
         return (saved > 0 ? saved : 15) * 60
     }
 
-    /// Call after a problem is solved. ADDS to existing time, capped at the user's cap.
     func grantTime(seconds: Int) {
-        let currentRemaining = max(0, Int(unlockExpiryDate?.timeIntervalSinceNow ?? 0))
-        let newTotal = min(currentRemaining + seconds, maxSeconds)
-        let expiry = Date().addingTimeInterval(TimeInterval(newTotal))
+        removeRestrictions()   // lift shields immediately
 
-        unlockExpiryDate = expiry
+        let currentRemaining = max(0, Int(unlockExpiryDate?.timeIntervalSinceNow ?? 0))
+        let newTotal         = min(currentRemaining + seconds, maxSeconds)
+        let expiry           = Date().addingTimeInterval(TimeInterval(newTotal))
+
+        unlockExpiryDate     = expiry
         timeRemainingSeconds = newTotal
-        isUnlocked = true
+        isUnlocked           = true
 
         UserDefaults.standard.set(expiry, forKey: Keys.unlockExpiry)
-
-        notificationCenter.removePendingNotificationRequests(withIdentifiers: [NotifID.expiry])
         scheduleExpiryNotification(in: newTotal)
         startCountdown(until: expiry)
+        clearPendingUnlockRequest()
     }
 
-    /// Manually end the unlock window early.
     func revokeTimeNow() {
         cancelAll()
-        notificationCenter.removePendingNotificationRequests(withIdentifiers: [NotifID.expiry])
+        applyRestrictions()
+        notificationCenter.removePendingNotificationRequests(withIdentifiers: ["mg_timeExpired"])
+    }
+
+    // MARK: - Pending Unlock (signalled by ShieldActionExtension)
+
+    /// True when the shield's "Open Integate" button was tapped.
+    var hasPendingUnlockRequest: Bool {
+        sharedDefaults?.bool(forKey: Keys.pendingUnlock) ?? false
+    }
+
+    func clearPendingUnlockRequest() {
+        sharedDefaults?.removeObject(forKey: Keys.pendingUnlock)
     }
 
     // MARK: - Countdown
 
     private func startCountdown(until expiry: Date) {
         cancelCountdownTimer()
-
         countdownTimer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { [weak self] _ in
             guard let self else { return }
             let remaining = max(0, Int(expiry.timeIntervalSinceNow))
@@ -86,13 +155,14 @@ class ScreenTimeManager: ObservableObject {
     private func onExpired() {
         cancelAll()
         UserDefaults.standard.removeObject(forKey: Keys.unlockExpiry)
+        applyRestrictions()
     }
 
     private func cancelAll() {
         cancelCountdownTimer()
-        unlockExpiryDate = nil
+        unlockExpiryDate     = nil
         timeRemainingSeconds = 0
-        isUnlocked = false
+        isUnlocked           = false
     }
 
     private func cancelCountdownTimer() {
@@ -103,34 +173,32 @@ class ScreenTimeManager: ObservableObject {
     // MARK: - Resume on Launch
 
     private func resumeIfNeeded() {
-        guard let expiry = UserDefaults.standard.object(forKey: Keys.unlockExpiry) as? Date else { return }
-        if expiry > Date() {
-            unlockExpiryDate = expiry
+        if let expiry = UserDefaults.standard.object(forKey: Keys.unlockExpiry) as? Date, expiry > Date() {
+            removeRestrictions()
+            unlockExpiryDate     = expiry
             timeRemainingSeconds = max(0, Int(expiry.timeIntervalSinceNow))
-            isUnlocked = true
+            isUnlocked           = true
             startCountdown(until: expiry)
         } else {
             UserDefaults.standard.removeObject(forKey: Keys.unlockExpiry)
+            applyRestrictions()
         }
     }
 
-    // MARK: - Local Notifications
+    // MARK: - Persist FamilyActivitySelection
 
-    private func requestNotificationPermission() {
-        notificationCenter.requestAuthorization(options: [.alert, .sound]) { _, _ in }
+    private func saveSelection() {
+        guard let data = try? JSONEncoder().encode(activitySelection) else { return }
+        UserDefaults.standard.set(data, forKey: Keys.selection)
+        sharedDefaults?.set(data, forKey: Keys.selection)
     }
 
-    private func scheduleExpiryNotification(in seconds: Int) {
-        notificationCenter.removePendingNotificationRequests(withIdentifiers: [NotifID.expiry])
-
-        let content = UNMutableNotificationContent()
-        content.title = "Time's up! 🔒"
-        content.body = "Your earned time just ran out. Open MathGate to solve another problem."
-        content.sound = .default
-
-        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: TimeInterval(seconds), repeats: false)
-        let request  = UNNotificationRequest(identifier: NotifID.expiry, content: content, trigger: trigger)
-        notificationCenter.add(request)
+    private func loadSelection() {
+        let data = UserDefaults.standard.data(forKey: Keys.selection)
+            ?? sharedDefaults?.data(forKey: Keys.selection)
+        if let data, let sel = try? JSONDecoder().decode(FamilyActivitySelection.self, from: data) {
+            activitySelection = sel
+        }
     }
 
     // MARK: - Formatted Time
@@ -141,15 +209,20 @@ class ScreenTimeManager: ObservableObject {
         return String(format: "%d:%02d", m, s)
     }
 
-    // MARK: - Keys
+    // MARK: - Notifications
 
-    private enum Keys {
-        static let unlockExpiry    = "mg_unlockExpiry"
-        static let blockedAppNames = "mg_blockedAppNames"
-        static let timeCap         = "mg_timeCap"
+    private func requestNotificationPermission() {
+        notificationCenter.requestAuthorization(options: [.alert, .sound]) { _, _ in }
     }
 
-    private enum NotifID {
-        static let expiry = "mg_timeExpired"
+    private func scheduleExpiryNotification(in seconds: Int) {
+        notificationCenter.removePendingNotificationRequests(withIdentifiers: ["mg_timeExpired"])
+        let content   = UNMutableNotificationContent()
+        content.title = "Time's up! 🔒"
+        content.body  = "Your earned screen time expired. Open the app to solve another problem."
+        content.sound = .default
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: TimeInterval(seconds), repeats: false)
+        let request  = UNNotificationRequest(identifier: "mg_timeExpired", content: content, trigger: trigger)
+        notificationCenter.add(request)
     }
 }

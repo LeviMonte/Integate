@@ -1,9 +1,9 @@
-# MathGate — App Store Listing Copy
+# Integate — App Store Listing Copy
 
 ---
 
 ## App Name
-MathGate
+Integate
 
 ## Subtitle (30 chars max)
 Earn Screen Time With Math
@@ -14,7 +14,7 @@ Earn Screen Time With Math
 
 Stop scrolling. Start solving.
 
-MathGate is a screen time app with a twist — you don't just set limits, you *earn* your time back by solving real math problems. Solve a problem, unlock minutes. The harder the problem, the more time you earn.
+Integate is a screen time app with a twist — you don't just set limits, you *earn* your time back by solving real math problems. Solve a problem, unlock minutes. The harder the problem, the more time you earn.
 
 **Five subjects. Four difficulty levels. No shortcuts.**
 
@@ -39,9 +39,9 @@ Watch your XP climb, your streak grow, and your accuracy improve across every su
 
 **Honest about how it works**
 
-MathGate uses an honor system — it notifies you when your earned time runs out, and the commitment to actually close those apps is yours. Real app blocking requires an Apple Family Controls entitlement we're working toward.
+Integate uses an honor system — it notifies you when your earned time runs out, and the commitment to actually close those apps is yours. Real app blocking requires an Apple Family Controls entitlement we're working toward.
 
-Whether you're prepping for the SAT, studying for AP Calculus, or just want to feel like you *earned* that TikTok session — MathGate makes screen time mean something.
+Whether you're prepping for the SAT, studying for AP Calculus, or just want to feel like you *earned* that TikTok session — Integate makes screen time mean something.
 
 ---
 

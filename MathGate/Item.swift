@@ -1,6 +1,6 @@
 //
 //  Item.swift
-//  MathGate
+//  Integate
 //
 //  Created by Levi Monte on 6/23/26.
 //

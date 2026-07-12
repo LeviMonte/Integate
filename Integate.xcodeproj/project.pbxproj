@@ -24,9 +24,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		DB7A92AD2FEAE0240038976B /* MathGate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MathGate.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		DB7A92BC2FEAE0260038976B /* MathGateTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MathGateTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		DB7A92C62FEAE0260038976B /* MathGateUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MathGateUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		DB7A92AD2FEAE0240038976B /* Integate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Integate.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		DB7A92BC2FEAE0260038976B /* IntegateTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = IntegateTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		DB7A92C62FEAE0260038976B /* IntegateUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = IntegateUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -85,9 +85,9 @@
 		DB7A92AE2FEAE0240038976B /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				DB7A92AD2FEAE0240038976B /* MathGate.app */,
-				DB7A92BC2FEAE0260038976B /* MathGateTests.xctest */,
-				DB7A92C62FEAE0260038976B /* MathGateUITests.xctest */,
+				DB7A92AD2FEAE0240038976B /* Integate.app */,
+				DB7A92BC2FEAE0260038976B /* IntegateTests.xctest */,
+				DB7A92C62FEAE0260038976B /* IntegateUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -95,9 +95,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		DB7A92AC2FEAE0240038976B /* MathGate */ = {
+		DB7A92AC2FEAE0240038976B /* Integate */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = DB7A92D02FEAE0260038976B /* Build configuration list for PBXNativeTarget "MathGate" */;
+			buildConfigurationList = DB7A92D02FEAE0260038976B /* Build configuration list for PBXNativeTarget "Integate" */;
 			buildPhases = (
 				DB7A92A92FEAE0240038976B /* Sources */,
 				DB7A92AA2FEAE0240038976B /* Frameworks */,
@@ -110,16 +110,16 @@
 			fileSystemSynchronizedGroups = (
 				DB7A92AF2FEAE0240038976B /* MathGate */,
 			);
-			name = MathGate;
+			name = Integate;
 			packageProductDependencies = (
 			);
 			productName = MathGate;
-			productReference = DB7A92AD2FEAE0240038976B /* MathGate.app */;
+			productReference = DB7A92AD2FEAE0240038976B /* Integate.app */;
 			productType = "com.apple.product-type.application";
 		};
-		DB7A92BB2FEAE0260038976B /* MathGateTests */ = {
+		DB7A92BB2FEAE0260038976B /* IntegateTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = DB7A92D32FEAE0260038976B /* Build configuration list for PBXNativeTarget "MathGateTests" */;
+			buildConfigurationList = DB7A92D32FEAE0260038976B /* Build configuration list for PBXNativeTarget "IntegateTests" */;
 			buildPhases = (
 				DB7A92B82FEAE0260038976B /* Sources */,
 				DB7A92B92FEAE0260038976B /* Frameworks */,
@@ -133,16 +133,16 @@
 			fileSystemSynchronizedGroups = (
 				DB7A92BF2FEAE0260038976B /* MathGateTests */,
 			);
-			name = MathGateTests;
+			name = IntegateTests;
 			packageProductDependencies = (
 			);
 			productName = MathGateTests;
-			productReference = DB7A92BC2FEAE0260038976B /* MathGateTests.xctest */;
+			productReference = DB7A92BC2FEAE0260038976B /* IntegateTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		DB7A92C52FEAE0260038976B /* MathGateUITests */ = {
+		DB7A92C52FEAE0260038976B /* IntegateUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = DB7A92D62FEAE0260038976B /* Build configuration list for PBXNativeTarget "MathGateUITests" */;
+			buildConfigurationList = DB7A92D62FEAE0260038976B /* Build configuration list for PBXNativeTarget "IntegateUITests" */;
 			buildPhases = (
 				DB7A92C22FEAE0260038976B /* Sources */,
 				DB7A92C32FEAE0260038976B /* Frameworks */,
@@ -156,11 +156,11 @@
 			fileSystemSynchronizedGroups = (
 				DB7A92C92FEAE0260038976B /* MathGateUITests */,
 			);
-			name = MathGateUITests;
+			name = IntegateUITests;
 			packageProductDependencies = (
 			);
 			productName = MathGateUITests;
-			productReference = DB7A92C62FEAE0260038976B /* MathGateUITests.xctest */;
+			productReference = DB7A92C62FEAE0260038976B /* IntegateUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -171,7 +171,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 2650;
-				LastUpgradeCheck = 2650;
+				LastUpgradeCheck = 2660;
 				TargetAttributes = {
 					DB7A92AC2FEAE0240038976B = {
 						CreatedOnToolsVersion = 26.5;
@@ -186,7 +186,7 @@
 					};
 				};
 			};
-			buildConfigurationList = DB7A92A82FEAE0240038976B /* Build configuration list for PBXProject "MathGate" */;
+			buildConfigurationList = DB7A92A82FEAE0240038976B /* Build configuration list for PBXProject "Integate" */;
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -200,9 +200,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				DB7A92AC2FEAE0240038976B /* MathGate */,
-				DB7A92BB2FEAE0260038976B /* MathGateTests */,
-				DB7A92C52FEAE0260038976B /* MathGateUITests */,
+				DB7A92AC2FEAE0240038976B /* Integate */,
+				DB7A92BB2FEAE0260038976B /* IntegateTests */,
+				DB7A92C52FEAE0260038976B /* IntegateUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -258,12 +258,12 @@
 /* Begin PBXTargetDependency section */
 		DB7A92BE2FEAE0260038976B /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = DB7A92AC2FEAE0240038976B /* MathGate */;
+			target = DB7A92AC2FEAE0240038976B /* Integate */;
 			targetProxy = DB7A92BD2FEAE0260038976B /* PBXContainerItemProxy */;
 		};
 		DB7A92C82FEAE0260038976B /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = DB7A92AC2FEAE0240038976B /* MathGate */;
+			target = DB7A92AC2FEAE0240038976B /* Integate */;
 			targetProxy = DB7A92C72FEAE0260038976B /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -328,6 +328,7 @@
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -385,6 +386,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -406,13 +408,13 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.6;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.Monte.MathGate;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Monte.Integate;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
@@ -440,13 +442,13 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.6;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.Monte.MathGate;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Monte.Integate;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
@@ -476,7 +478,7 @@
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MathGate.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/MathGate";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Integate.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Integate";
 			};
 			name = Debug;
 		};
@@ -498,7 +500,7 @@
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MathGate.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/MathGate";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Integate.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Integate";
 			};
 			name = Release;
 		};
@@ -545,7 +547,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		DB7A92A82FEAE0240038976B /* Build configuration list for PBXProject "MathGate" */ = {
+		DB7A92A82FEAE0240038976B /* Build configuration list for PBXProject "Integate" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				DB7A92CE2FEAE0260038976B /* Debug */,
@@ -554,7 +556,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		DB7A92D02FEAE0260038976B /* Build configuration list for PBXNativeTarget "MathGate" */ = {
+		DB7A92D02FEAE0260038976B /* Build configuration list for PBXNativeTarget "Integate" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				DB7A92D12FEAE0260038976B /* Debug */,
@@ -563,7 +565,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		DB7A92D32FEAE0260038976B /* Build configuration list for PBXNativeTarget "MathGateTests" */ = {
+		DB7A92D32FEAE0260038976B /* Build configuration list for PBXNativeTarget "IntegateTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				DB7A92D42FEAE0260038976B /* Debug */,
@@ -572,7 +574,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		DB7A92D62FEAE0260038976B /* Build configuration list for PBXNativeTarget "MathGateUITests" */ = {
+		DB7A92D62FEAE0260038976B /* Build configuration list for PBXNativeTarget "IntegateUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				DB7A92D72FEAE0260038976B /* Debug */,

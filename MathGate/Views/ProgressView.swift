@@ -1,6 +1,6 @@
 //
 //  ProgressView.swift
-//  MathGate
+//  Integate
 //
 
 import SwiftUI
