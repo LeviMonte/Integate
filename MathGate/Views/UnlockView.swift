@@ -195,6 +195,10 @@ struct UnlockView: View {
                         guard unlocked else { return }
                         selectedLevel = level
                     } label: {
+                        let isSelected = selectedLevel == level && unlocked
+                        let bgColor: Color = isSelected ? Color.indigo.opacity(0.15) : Color.gray.opacity(0.06)
+                        let fgColor: Color = !unlocked ? Color.secondary.opacity(0.4) : (selectedLevel == level ? Color.indigo : Color.secondary)
+                        let borderColor: Color = isSelected ? Color.indigo.opacity(0.4) : Color.clear
                         VStack(spacing: 2) {
                             Text(level.emoji).font(.system(size: 14))
                             Text(level.displayName)
@@ -202,22 +206,10 @@ struct UnlockView: View {
                         }
                         .frame(maxWidth: .infinity)
                         .padding(.vertical, 8)
-                        .background(
-                            selectedLevel == level && unlocked
-                                ? Color.indigo.opacity(0.15)
-                                : Color.gray.opacity(0.06),
-                            in: RoundedRectangle(cornerRadius: 8)
-                        )
-                        .foregroundStyle(
-                            !unlocked ? Color.secondary.opacity(0.4)
-                                : selectedLevel == level ? Color.indigo
-                                : Color.secondary
-                        )
+                        .background(bgColor, in: RoundedRectangle(cornerRadius: 8))
+                        .foregroundStyle(fgColor)
                         .overlay(
-                            RoundedRectangle(cornerRadius: 8).strokeBorder(
-                                selectedLevel == level && unlocked ? Color.indigo.opacity(0.4) : Color.clear,
-                                lineWidth: 1
-                            )
+                            RoundedRectangle(cornerRadius: 8).strokeBorder(borderColor, lineWidth: 1)
                         )
                     }
                     .buttonStyle(.plain)

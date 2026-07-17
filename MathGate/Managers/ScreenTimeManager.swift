@@ -10,7 +10,7 @@
 //
 //  REQUIRES in Xcode (main target):
 //    Signing & Capabilities → + Capability → Family Controls
-//    Signing & Capabilities → + Capability → App Groups  →  group.com.levimonte.integate
+//    Signing & Capabilities → + Capability → App Groups  →  group.com.monte.integate
 //    (use YOUR actual bundle ID prefix — just keep "group." at the front)
 //
 
@@ -41,7 +41,7 @@ class ScreenTimeManager: ObservableObject {
     private let store = ManagedSettingsStore()
 
     /// ⚠️ Change this to match your actual Bundle ID prefix
-    let appGroupID = "group.com.levimonte.integate"
+    let appGroupID = "group.com.monte.integate"
 
     private var sharedDefaults: UserDefaults? { UserDefaults(suiteName: appGroupID) }
     private var countdownTimer: Timer?
@@ -181,7 +181,11 @@ class ScreenTimeManager: ObservableObject {
             startCountdown(until: expiry)
         } else {
             UserDefaults.standard.removeObject(forKey: Keys.unlockExpiry)
-            applyRestrictions()
+            // Only apply if we actually have apps selected — avoids clearing and
+            // re-setting the store with an empty selection on every launch.
+            if !activitySelection.applicationTokens.isEmpty || !activitySelection.categoryTokens.isEmpty {
+                applyRestrictions()
+            }
         }
     }
 

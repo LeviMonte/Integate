@@ -1,0 +1,38 @@
+{
+  "configurations" : [
+    {
+      "id" : "1DFBFAA7-95F9-4E25-9AC8-E3BC86654C5D",
+      "name" : "Test Scheme Action",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "performanceAntipatternCheckerEnabled" : true,
+    "targetForVariableExpansion" : {
+      "containerPath" : "container:Integate.xcodeproj",
+      "identifier" : "DB7A92AC2FEAE0240038976B",
+      "name" : "Integate"
+    }
+  },
+  "testTargets" : [
+    {
+      "parallelizable" : true,
+      "target" : {
+        "containerPath" : "container:Integate.xcodeproj",
+        "identifier" : "DB7A92BB2FEAE0260038976B",
+        "name" : "IntegateTests"
+      }
+    },
+    {
+      "parallelizable" : true,
+      "target" : {
+        "containerPath" : "container:Integate.xcodeproj",
+        "identifier" : "DB7A92C52FEAE0260038976B",
+        "name" : "IntegateUITests"
+      }
+    }
+  ],
+  "version" : 1
+}

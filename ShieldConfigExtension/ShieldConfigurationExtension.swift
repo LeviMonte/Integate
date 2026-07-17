@@ -1,13 +1,12 @@
 //
 //  ShieldConfigurationExtension.swift
-//  ShieldConfigurationExtension
+//  ShieldConfigExtension
 //
 //  Customizes the iOS block screen that appears when a user taps a restricted app.
-//  This is a separate app extension target — see SETUP notes in SETUP.md.
 //
 //  REQUIRES in Xcode (this extension target):
-//    Linked Framework: ManagedSettingsUI
-//    Signing & Capabilities → App Groups → group.com.levimonte.integate
+//    Linked Frameworks: ManagedSettingsUI, ManagedSettings
+//    Signing & Capabilities → App Groups → group.com.monte.integate
 //
 
 import ManagedSettings
@@ -23,7 +22,7 @@ class ShieldConfigurationExtension: ShieldConfigurationDataSource {
     }
 
     override func configuration(shielding application: Application,
-                                 in domain: ActivityCategoryToken) -> ShieldConfiguration {
+                                in category: ActivityCategory) -> ShieldConfiguration {
         makeConfig(blockedName: application.localizedDisplayName)
     }
 
@@ -33,10 +32,9 @@ class ShieldConfigurationExtension: ShieldConfigurationDataSource {
         makeConfig(blockedName: webDomain.domain.map { "www.\($0)" })
     }
 
-    // MARK: - Category blocked
-
-    override func configuration(shielding category: ActivityCategory) -> ShieldConfiguration {
-        makeConfig(blockedName: nil)
+    override func configuration(shielding webDomain: WebDomain,
+                                in category: ActivityCategory) -> ShieldConfiguration {
+        makeConfig(blockedName: webDomain.domain.map { "www.\($0)" })
     }
 
     // MARK: - Shared builder
@@ -72,10 +70,8 @@ class ShieldConfigurationExtension: ShieldConfigurationDataSource {
 
     // MARK: - Helpers
 
-    /// Reads the app display name from this extension's bundle (falls back to "Integate").
+    /// The app display name shown on the shield.
     private func appDisplayName() -> String {
-        // The extension bundle is inside the main app bundle, so we walk up.
-        // Simpler: just hardcode your chosen app name here.
-        return "Integate"   // ← update this when you rename the app
+        return "Integate"
     }
 }

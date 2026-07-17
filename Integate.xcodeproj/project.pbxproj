@@ -6,6 +6,14 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		DBD79D473003E85D002E5CA6 /* ManagedSettings.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DBD79D463003E85D002E5CA6 /* ManagedSettings.framework */; };
+		DBD79D493003E85D002E5CA6 /* ManagedSettingsUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DBD79D483003E85D002E5CA6 /* ManagedSettingsUI.framework */; };
+		DBD79D513003E85D002E5CA6 /* ShieldConfigExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = DBD79D443003E85D002E5CA6 /* ShieldConfigExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		DBE575CF3008679D00EE5B52 /* ManagedSettings.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DBD79D463003E85D002E5CA6 /* ManagedSettings.framework */; };
+		DBE575D73008679D00EE5B52 /* ShieldActionExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = DBE575CE3008679D00EE5B52 /* ShieldActionExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		DB7A92BD2FEAE0260038976B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -21,13 +29,64 @@
 			remoteGlobalIDString = DB7A92AC2FEAE0240038976B;
 			remoteInfo = MathGate;
 		};
+		DBD79D4F3003E85D002E5CA6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DB7A92A52FEAE0240038976B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DBD79D433003E85D002E5CA6;
+			remoteInfo = ShieldConfigExtension;
+		};
+		DBE575D53008679D00EE5B52 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DB7A92A52FEAE0240038976B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DBE575CD3008679D00EE5B52;
+			remoteInfo = ShieldActionExtension;
+		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		DBD79D523003E85D002E5CA6 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				DBD79D513003E85D002E5CA6 /* ShieldConfigExtension.appex in Embed Foundation Extensions */,
+				DBE575D73008679D00EE5B52 /* ShieldActionExtension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
-		DB7A92AD2FEAE0240038976B /* Integate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Integate.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		DB7A92AD2FEAE0240038976B /* Integates.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Integates.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB7A92BC2FEAE0260038976B /* IntegateTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = IntegateTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB7A92C62FEAE0260038976B /* IntegateUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = IntegateUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		DB8096D9300872210068E94C /* Integate.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = Integate.xctestplan; sourceTree = "<group>"; };
+		DBD79D443003E85D002E5CA6 /* ShieldConfigExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = ShieldConfigExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		DBD79D463003E85D002E5CA6 /* ManagedSettings.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ManagedSettings.framework; path = System/Library/Frameworks/ManagedSettings.framework; sourceTree = SDKROOT; };
+		DBD79D483003E85D002E5CA6 /* ManagedSettingsUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ManagedSettingsUI.framework; path = System/Library/Frameworks/ManagedSettingsUI.framework; sourceTree = SDKROOT; };
+		DBE575CE3008679D00EE5B52 /* ShieldActionExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = ShieldActionExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		DBD79D553003E85D002E5CA6 /* Exceptions for "ShieldConfigExtension" folder in "ShieldConfigExtension" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = DBD79D433003E85D002E5CA6 /* ShieldConfigExtension */;
+		};
+		DBE575D83008679D00EE5B52 /* Exceptions for "ShieldActionExtension" folder in "ShieldActionExtension" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = DBE575CD3008679D00EE5B52 /* ShieldActionExtension */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		DB7A92AF2FEAE0240038976B /* MathGate */ = {
@@ -43,6 +102,22 @@
 		DB7A92C92FEAE0260038976B /* MathGateUITests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = MathGateUITests;
+			sourceTree = "<group>";
+		};
+		DBD79D4A3003E85D002E5CA6 /* ShieldConfigExtension */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				DBD79D553003E85D002E5CA6 /* Exceptions for "ShieldConfigExtension" folder in "ShieldConfigExtension" target */,
+			);
+			path = ShieldConfigExtension;
+			sourceTree = "<group>";
+		};
+		DBE575D03008679D00EE5B52 /* ShieldActionExtension */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				DBE575D83008679D00EE5B52 /* Exceptions for "ShieldActionExtension" folder in "ShieldActionExtension" target */,
+			);
+			path = ShieldActionExtension;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -69,15 +144,36 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		DBD79D413003E85D002E5CA6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DBD79D473003E85D002E5CA6 /* ManagedSettings.framework in Frameworks */,
+				DBD79D493003E85D002E5CA6 /* ManagedSettingsUI.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DBE575CB3008679D00EE5B52 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DBE575CF3008679D00EE5B52 /* ManagedSettings.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
 		DB7A92A42FEAE0240038976B = {
 			isa = PBXGroup;
 			children = (
+				DB8096D9300872210068E94C /* Integate.xctestplan */,
 				DB7A92AF2FEAE0240038976B /* MathGate */,
 				DB7A92BF2FEAE0260038976B /* MathGateTests */,
 				DB7A92C92FEAE0260038976B /* MathGateUITests */,
+				DBD79D4A3003E85D002E5CA6 /* ShieldConfigExtension */,
+				DBE575D03008679D00EE5B52 /* ShieldActionExtension */,
+				DBD79D453003E85D002E5CA6 /* Frameworks */,
 				DB7A92AE2FEAE0240038976B /* Products */,
 			);
 			sourceTree = "<group>";
@@ -85,11 +181,22 @@
 		DB7A92AE2FEAE0240038976B /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				DB7A92AD2FEAE0240038976B /* Integate.app */,
+				DB7A92AD2FEAE0240038976B /* Integates.app */,
 				DB7A92BC2FEAE0260038976B /* IntegateTests.xctest */,
 				DB7A92C62FEAE0260038976B /* IntegateUITests.xctest */,
+				DBD79D443003E85D002E5CA6 /* ShieldConfigExtension.appex */,
+				DBE575CE3008679D00EE5B52 /* ShieldActionExtension.appex */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		DBD79D453003E85D002E5CA6 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				DBD79D463003E85D002E5CA6 /* ManagedSettings.framework */,
+				DBD79D483003E85D002E5CA6 /* ManagedSettingsUI.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -102,10 +209,13 @@
 				DB7A92A92FEAE0240038976B /* Sources */,
 				DB7A92AA2FEAE0240038976B /* Frameworks */,
 				DB7A92AB2FEAE0240038976B /* Resources */,
+				DBD79D523003E85D002E5CA6 /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				DBD79D503003E85D002E5CA6 /* PBXTargetDependency */,
+				DBE575D63008679D00EE5B52 /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
 				DB7A92AF2FEAE0240038976B /* MathGate */,
@@ -114,7 +224,7 @@
 			packageProductDependencies = (
 			);
 			productName = MathGate;
-			productReference = DB7A92AD2FEAE0240038976B /* Integate.app */;
+			productReference = DB7A92AD2FEAE0240038976B /* Integates.app */;
 			productType = "com.apple.product-type.application";
 		};
 		DB7A92BB2FEAE0260038976B /* IntegateTests */ = {
@@ -163,6 +273,50 @@
 			productReference = DB7A92C62FEAE0260038976B /* IntegateUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
+		DBD79D433003E85D002E5CA6 /* ShieldConfigExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DBD79D563003E85D002E5CA6 /* Build configuration list for PBXNativeTarget "ShieldConfigExtension" */;
+			buildPhases = (
+				DBD79D403003E85D002E5CA6 /* Sources */,
+				DBD79D413003E85D002E5CA6 /* Frameworks */,
+				DBD79D423003E85D002E5CA6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				DBD79D4A3003E85D002E5CA6 /* ShieldConfigExtension */,
+			);
+			name = ShieldConfigExtension;
+			packageProductDependencies = (
+			);
+			productName = ShieldConfigExtension;
+			productReference = DBD79D443003E85D002E5CA6 /* ShieldConfigExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+		DBE575CD3008679D00EE5B52 /* ShieldActionExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DBE575D93008679D00EE5B52 /* Build configuration list for PBXNativeTarget "ShieldActionExtension" */;
+			buildPhases = (
+				DBE575CA3008679D00EE5B52 /* Sources */,
+				DBE575CB3008679D00EE5B52 /* Frameworks */,
+				DBE575CC3008679D00EE5B52 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				DBE575D03008679D00EE5B52 /* ShieldActionExtension */,
+			);
+			name = ShieldActionExtension;
+			packageProductDependencies = (
+			);
+			productName = ShieldActionExtension;
+			productReference = DBE575CE3008679D00EE5B52 /* ShieldActionExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -170,7 +324,7 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 2650;
+				LastSwiftUpdateCheck = 2660;
 				LastUpgradeCheck = 2660;
 				TargetAttributes = {
 					DB7A92AC2FEAE0240038976B = {
@@ -183,6 +337,12 @@
 					DB7A92C52FEAE0260038976B = {
 						CreatedOnToolsVersion = 26.5;
 						TestTargetID = DB7A92AC2FEAE0240038976B;
+					};
+					DBD79D433003E85D002E5CA6 = {
+						CreatedOnToolsVersion = 26.6;
+					};
+					DBE575CD3008679D00EE5B52 = {
+						CreatedOnToolsVersion = 26.6;
 					};
 				};
 			};
@@ -203,6 +363,8 @@
 				DB7A92AC2FEAE0240038976B /* Integate */,
 				DB7A92BB2FEAE0260038976B /* IntegateTests */,
 				DB7A92C52FEAE0260038976B /* IntegateUITests */,
+				DBD79D433003E85D002E5CA6 /* ShieldConfigExtension */,
+				DBE575CD3008679D00EE5B52 /* ShieldActionExtension */,
 			);
 		};
 /* End PBXProject section */
@@ -223,6 +385,20 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		DB7A92C42FEAE0260038976B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DBD79D423003E85D002E5CA6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DBE575CC3008679D00EE5B52 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -253,6 +429,20 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		DBD79D403003E85D002E5CA6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DBE575CA3008679D00EE5B52 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -265,6 +455,16 @@
 			isa = PBXTargetDependency;
 			target = DB7A92AC2FEAE0240038976B /* Integate */;
 			targetProxy = DB7A92C72FEAE0260038976B /* PBXContainerItemProxy */;
+		};
+		DBD79D503003E85D002E5CA6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DBD79D433003E85D002E5CA6 /* ShieldConfigExtension */;
+			targetProxy = DBD79D4F3003E85D002E5CA6 /* PBXContainerItemProxy */;
+		};
+		DBE575D63008679D00EE5B52 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DBE575CD3008679D00EE5B52 /* ShieldActionExtension */;
+			targetProxy = DBE575D53008679D00EE5B52 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -415,7 +615,7 @@
 				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.Monte.Integate;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Integates;
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
 				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
@@ -449,7 +649,7 @@
 				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.Monte.Integate;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Integates;
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
 				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
@@ -544,6 +744,122 @@
 			};
 			name = Release;
 		};
+		DBD79D533003E85D002E5CA6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = ShieldConfigExtension/ShieldConfigExtension.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 6Z23ZPW362;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = ShieldConfigExtension/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = ShieldConfigExtension;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Monte.Integate.ShieldConfigExtension;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		DBD79D543003E85D002E5CA6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = ShieldConfigExtension/ShieldConfigExtension.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 6Z23ZPW362;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = ShieldConfigExtension/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = ShieldConfigExtension;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Monte.Integate.ShieldConfigExtension;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		DBE575DA3008679D00EE5B52 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = ShieldActionExtension/ShieldActionExtension.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 6Z23ZPW362;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = ShieldActionExtension/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = ShieldActionExtension;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Monte.Integate.ShieldActionExtension;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		DBE575DB3008679D00EE5B52 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = ShieldActionExtension/ShieldActionExtension.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 6Z23ZPW362;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = ShieldActionExtension/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = ShieldActionExtension;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Monte.Integate.ShieldActionExtension;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -579,6 +895,24 @@
 			buildConfigurations = (
 				DB7A92D72FEAE0260038976B /* Debug */,
 				DB7A92D82FEAE0260038976B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DBD79D563003E85D002E5CA6 /* Build configuration list for PBXNativeTarget "ShieldConfigExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DBD79D533003E85D002E5CA6 /* Debug */,
+				DBD79D543003E85D002E5CA6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DBE575D93008679D00EE5B52 /* Build configuration list for PBXNativeTarget "ShieldActionExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DBE575DA3008679D00EE5B52 /* Debug */,
+				DBE575DB3008679D00EE5B52 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

@@ -20,9 +20,9 @@ Add these three:
 
 For **App Groups**, click the `+` button and add:
 ```
-group.com.levimonte.integate
+group.com.monte.integate
 ```
-(swap `levimonte.integate` if your bundle ID is different, but keep the `group.` prefix)
+(swap `Monte.Integate` if your bundle ID is different, but keep the `group.` prefix)
 
 ---
 
@@ -43,7 +43,7 @@ When Xcode creates it:
 
 Add the **App Groups** capability to this target too, with the same group ID:
 ```
-group.com.levimonte.integate
+group.com.monte.integate
 ```
 
 In **Build Phases → Link Binary With Libraries**, add:

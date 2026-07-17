@@ -12,7 +12,7 @@
 //
 //  REQUIRES in Xcode (this extension target):
 //    Linked Framework: ManagedSettings
-//    Signing & Capabilities → App Groups → group.com.levimonte.integate
+//    Signing & Capabilities → App Groups → group.com.monte.integate
 //
 
 import ManagedSettings
@@ -22,7 +22,7 @@ import UserNotifications
 class ShieldActionExtension: ShieldActionDelegate {
 
     // ⚠️ Must match ScreenTimeManager.appGroupID and the extension's App Group capability
-    private let appGroupID = "group.com.levimonte.integate"
+    private let appGroupID = "group.com.monte.integate"
 
     // MARK: - Application tokens
 
