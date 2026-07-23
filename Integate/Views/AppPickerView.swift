@@ -31,7 +31,7 @@ struct AppPickerView: View {
                         VStack(alignment: .leading, spacing: 10) {
                             Label("Screen Time Permission Needed", systemImage: "lock.shield.fill")
                                 .font(.headline).foregroundStyle(.orange)
-                            Text("This app needs Screen Time permission to actually block apps. Without it, you can still use the honor system.")
+                            Text("This app needs Screen Time permission to actually block apps. Without it, Integate can't enforce anything — solving problems is entirely optional until you grant it.")
                                 .font(.caption).foregroundStyle(.secondary)
                             Button {
                                 isRequestingAuth = true

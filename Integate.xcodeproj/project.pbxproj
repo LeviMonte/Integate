@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DB1141BC30128585003E81EA /* DeviceActivity.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB1141BB30128585003E81EA /* DeviceActivity.framework */; };
+		DB1141C430128585003E81EA /* DeviceActivityMonitorExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = DB1141BA30128585003E81EA /* DeviceActivityMonitorExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		DBD79D473003E85D002E5CA6 /* ManagedSettings.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DBD79D463003E85D002E5CA6 /* ManagedSettings.framework */; };
 		DBD79D493003E85D002E5CA6 /* ManagedSettingsUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DBD79D483003E85D002E5CA6 /* ManagedSettingsUI.framework */; };
 		DBD79D513003E85D002E5CA6 /* ShieldConfigExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = DBD79D443003E85D002E5CA6 /* ShieldConfigExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -15,6 +17,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		DB1141C230128585003E81EA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DB7A92A52FEAE0240038976B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DB1141B930128585003E81EA;
+			remoteInfo = DeviceActivityMonitorExtension;
+		};
 		DB7A92BD2FEAE0260038976B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = DB7A92A52FEAE0240038976B /* Project object */;
@@ -52,6 +61,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
+				DB1141C430128585003E81EA /* DeviceActivityMonitorExtension.appex in Embed Foundation Extensions */,
 				DBD79D513003E85D002E5CA6 /* ShieldConfigExtension.appex in Embed Foundation Extensions */,
 				DBE575D73008679D00EE5B52 /* ShieldActionExtension.appex in Embed Foundation Extensions */,
 			);
@@ -61,6 +71,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		DB1141BA30128585003E81EA /* DeviceActivityMonitorExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = DeviceActivityMonitorExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		DB1141BB30128585003E81EA /* DeviceActivity.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DeviceActivity.framework; path = System/Library/Frameworks/DeviceActivity.framework; sourceTree = SDKROOT; };
 		DB7A92AD2FEAE0240038976B /* Integates.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Integates.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB7A92BC2FEAE0260038976B /* IntegateTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = IntegateTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB7A92C62FEAE0260038976B /* IntegateUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = IntegateUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -72,6 +84,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		DB1141C730128585003E81EA /* Exceptions for "DeviceActivityMonitorExtension" folder in "DeviceActivityMonitorExtension" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = DB1141B930128585003E81EA /* DeviceActivityMonitorExtension */;
+		};
 		DBD79D553003E85D002E5CA6 /* Exceptions for "ShieldConfigExtension" folder in "ShieldConfigExtension" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
@@ -89,6 +108,14 @@
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
+		DB1141BD30128585003E81EA /* DeviceActivityMonitorExtension */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				DB1141C730128585003E81EA /* Exceptions for "DeviceActivityMonitorExtension" folder in "DeviceActivityMonitorExtension" target */,
+			);
+			path = DeviceActivityMonitorExtension;
+			sourceTree = "<group>";
+		};
 		DB7A92AF2FEAE0240038976B /* MathGate */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = MathGate;
@@ -123,6 +150,14 @@
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		DB1141B730128585003E81EA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DB1141BC30128585003E81EA /* DeviceActivity.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		DB7A92AA2FEAE0240038976B /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -173,6 +208,7 @@
 				DB7A92C92FEAE0260038976B /* MathGateUITests */,
 				DBD79D4A3003E85D002E5CA6 /* ShieldConfigExtension */,
 				DBE575D03008679D00EE5B52 /* ShieldActionExtension */,
+				DB1141BD30128585003E81EA /* DeviceActivityMonitorExtension */,
 				DBD79D453003E85D002E5CA6 /* Frameworks */,
 				DB7A92AE2FEAE0240038976B /* Products */,
 			);
@@ -186,6 +222,7 @@
 				DB7A92C62FEAE0260038976B /* IntegateUITests.xctest */,
 				DBD79D443003E85D002E5CA6 /* ShieldConfigExtension.appex */,
 				DBE575CE3008679D00EE5B52 /* ShieldActionExtension.appex */,
+				DB1141BA30128585003E81EA /* DeviceActivityMonitorExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -195,6 +232,7 @@
 			children = (
 				DBD79D463003E85D002E5CA6 /* ManagedSettings.framework */,
 				DBD79D483003E85D002E5CA6 /* ManagedSettingsUI.framework */,
+				DB1141BB30128585003E81EA /* DeviceActivity.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -202,6 +240,28 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		DB1141B930128585003E81EA /* DeviceActivityMonitorExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DB1141C830128585003E81EA /* Build configuration list for PBXNativeTarget "DeviceActivityMonitorExtension" */;
+			buildPhases = (
+				DB1141B630128585003E81EA /* Sources */,
+				DB1141B730128585003E81EA /* Frameworks */,
+				DB1141B830128585003E81EA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				DB1141BD30128585003E81EA /* DeviceActivityMonitorExtension */,
+			);
+			name = DeviceActivityMonitorExtension;
+			packageProductDependencies = (
+			);
+			productName = DeviceActivityMonitorExtension;
+			productReference = DB1141BA30128585003E81EA /* DeviceActivityMonitorExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		DB7A92AC2FEAE0240038976B /* Integate */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = DB7A92D02FEAE0260038976B /* Build configuration list for PBXNativeTarget "Integate" */;
@@ -216,6 +276,7 @@
 			dependencies = (
 				DBD79D503003E85D002E5CA6 /* PBXTargetDependency */,
 				DBE575D63008679D00EE5B52 /* PBXTargetDependency */,
+				DB1141C330128585003E81EA /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
 				DB7A92AF2FEAE0240038976B /* MathGate */,
@@ -327,6 +388,9 @@
 				LastSwiftUpdateCheck = 2660;
 				LastUpgradeCheck = 2660;
 				TargetAttributes = {
+					DB1141B930128585003E81EA = {
+						CreatedOnToolsVersion = 26.6;
+					};
 					DB7A92AC2FEAE0240038976B = {
 						CreatedOnToolsVersion = 26.5;
 					};
@@ -365,11 +429,19 @@
 				DB7A92C52FEAE0260038976B /* IntegateUITests */,
 				DBD79D433003E85D002E5CA6 /* ShieldConfigExtension */,
 				DBE575CD3008679D00EE5B52 /* ShieldActionExtension */,
+				DB1141B930128585003E81EA /* DeviceActivityMonitorExtension */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		DB1141B830128585003E81EA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		DB7A92AB2FEAE0240038976B /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -408,6 +480,13 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		DB1141B630128585003E81EA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		DB7A92A92FEAE0240038976B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -446,6 +525,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		DB1141C330128585003E81EA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DB1141B930128585003E81EA /* DeviceActivityMonitorExtension */;
+			targetProxy = DB1141C230128585003E81EA /* PBXContainerItemProxy */;
+		};
 		DB7A92BE2FEAE0260038976B /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = DB7A92AC2FEAE0240038976B /* Integate */;
@@ -469,6 +553,64 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		DB1141C530128585003E81EA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = DeviceActivityMonitorExtension/DeviceActivityMonitorExtension.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 6Z23ZPW362;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = DeviceActivityMonitorExtension/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = DeviceActivityMonitorExtension;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Monte.Integate.DeviceActivityMonitorExtension;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		DB1141C630128585003E81EA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = DeviceActivityMonitorExtension/DeviceActivityMonitorExtension.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 6Z23ZPW362;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = DeviceActivityMonitorExtension/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = DeviceActivityMonitorExtension;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Monte.Integate.DeviceActivityMonitorExtension;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		DB7A92CE2FEAE0260038976B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -599,10 +741,11 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = MathGate/MathGate.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = 6Z23ZPW362;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = Integate;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -613,7 +756,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.Monte.Integate;
 				PRODUCT_NAME = Integates;
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
@@ -633,10 +776,11 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = MathGate/MathGate.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = 6Z23ZPW362;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = Integate;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -647,7 +791,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.Monte.Integate;
 				PRODUCT_NAME = Integates;
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
@@ -749,7 +893,7 @@
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = ShieldConfigExtension/ShieldConfigExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = 6Z23ZPW362;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ShieldConfigExtension/Info.plist;
@@ -760,7 +904,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.Monte.Integate.ShieldConfigExtension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -778,7 +922,7 @@
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = ShieldConfigExtension/ShieldConfigExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = 6Z23ZPW362;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ShieldConfigExtension/Info.plist;
@@ -789,7 +933,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.Monte.Integate.ShieldConfigExtension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -807,7 +951,7 @@
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = ShieldActionExtension/ShieldActionExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = 6Z23ZPW362;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ShieldActionExtension/Info.plist;
@@ -818,7 +962,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.Monte.Integate.ShieldActionExtension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -836,7 +980,7 @@
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = ShieldActionExtension/ShieldActionExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = 6Z23ZPW362;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ShieldActionExtension/Info.plist;
@@ -847,7 +991,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.Monte.Integate.ShieldActionExtension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -863,6 +1007,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		DB1141C830128585003E81EA /* Build configuration list for PBXNativeTarget "DeviceActivityMonitorExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DB1141C530128585003E81EA /* Debug */,
+				DB1141C630128585003E81EA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		DB7A92A82FEAE0240038976B /* Build configuration list for PBXProject "Integate" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

@@ -49,7 +49,7 @@ struct UnlockView: View {
                         VStack(spacing: 20) {
                             // Shown when user tapped "Open Integate →" on a shield screen
                             // Hide once they start solving — no need to nag mid-problem
-                            if screenTime.hasPendingUnlockRequest && phase == .idle {
+                            if screenTime.pendingUnlockActive && phase == .idle {
                                 pendingUnlockBanner
                             }
                             if screenTime.timeRemainingSeconds > 0 {
@@ -239,8 +239,15 @@ struct UnlockView: View {
     private var timeRemainingBanner: some View {
         HStack {
             Image(systemName: "timer")
-            Text("Unlocked · \(screenTime.formattedTimeRemaining) remaining")
-                .fontWeight(.medium)
+            VStack(alignment: .leading, spacing: 1) {
+                Text("Unlocked · \(screenTime.formattedTimeRemaining) remaining")
+                    .fontWeight(.medium)
+                if screenTime.activeUseOnlyMode {
+                    Text("Only ticks down while you're in a blocked app")
+                        .font(.caption2)
+                        .foregroundStyle(.secondary)
+                }
+            }
             Spacer()
             Button("Solve Another") { startNewProblem() }
                 .font(.caption.weight(.semibold))
@@ -575,7 +582,7 @@ struct UnlockView: View {
 
     private func startProblem(at level: MathLevel, subject: MathSubject) {
         selectedLevel = level   // persist so "Solve Another" repeats same level
-        let problem = engine.problem(for: level, subject: subject, respectTimeOfDay: false)
+        let problem = engine.problem(for: level, subject: subject)
         currentProblem = problem
         showHint = false
         hintUsed = false

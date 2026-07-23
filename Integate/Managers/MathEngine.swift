@@ -2,12 +2,17 @@ import Foundation
 
 // MARK: - Time of Day
 
+// Note: this used to also scale difficulty up/down by time of day, but that
+// made difficulty feel random and inconsistent (harder in the evening, then
+// randomly *easier* from 10pm–2am, then harder again overnight) on top of the
+// problems themselves already discouraging late-night app usage. Difficulty
+// is now purely level-based; TimeOfDay only drives the optional clock label.
 enum TimeOfDay {
-    case morning    // 6–11am  → normal difficulty
-    case afternoon  // 11am–6pm → normal difficulty
-    case evening    // 6–10pm  → +1 harder
-    case lateNight  // 10pm–2am → −1 easier
-    case overnight  // 2–6am   → +2 harder
+    case morning    // 6–11am
+    case afternoon  // 11am–6pm
+    case evening    // 6–10pm
+    case lateNight  // 10pm–2am
+    case overnight  // 2–6am
 
     static var current: TimeOfDay {
         let h = Calendar.current.component(.hour, from: Date())
@@ -17,16 +22,6 @@ enum TimeOfDay {
         case 18..<22: return .evening
         case 22..<26: return .lateNight
         default:      return .overnight
-        }
-    }
-
-    var levelOffset: Int {
-        switch self {
-        case .morning:   return 0
-        case .afternoon: return 0
-        case .evening:   return 1
-        case .lateNight: return -1
-        case .overnight: return 2
         }
     }
 
@@ -51,17 +46,9 @@ class MathEngine {
     // MARK: - Public API
 
     func problem(for level: MathLevel,
-                 subject: MathSubject = .integrals,
-                 respectTimeOfDay: Bool = true) -> MathProblem {
-        let effective: MathLevel
-        if respectTimeOfDay {
-            let raw = (level.rawValue + TimeOfDay.current.levelOffset).clamped(to: 1...4)
-            effective = MathLevel(rawValue: raw) ?? level
-        } else {
-            effective = level
-        }
-        let pool = problems(for: effective, subject: subject)
-        return pool.randomElement() ?? problems(for: effective, subject: .integrals).randomElement()!
+                 subject: MathSubject = .integrals) -> MathProblem {
+        let pool = problems(for: level, subject: subject)
+        return pool.randomElement() ?? problems(for: level, subject: .integrals).randomElement()!
     }
 
     func problems(for level: MathLevel, subject: MathSubject = .integrals) -> [MathProblem] {
@@ -3687,6 +3674,79 @@ class MathEngine {
             [x³+x]₁³ = (27+3)−(1+1) = 30−2 = 28
             """,
             hint: "∫3x²=x³, ∫1=x. F(3)−F(1)."
+        ),
+
+        // ── Integration by Parts (introduced at Advanced) ──
+        // Previously every Advanced problem was Trig Sub or U-Sub — no IBP
+        // at all despite the README promising it. These use the standard
+        // x·sin(x) / x·cos(x) IBP pattern, which lands on clean integers.
+
+        MathProblem(
+            displayPrimary: "∫ x·sin(x) dx",
+            lowerBound: "0", upperBound: "π/2",
+            answerType: .integer(1),
+            level: .advanced, category: .integral,
+            technique: "Integration by Parts",
+            explanation: """
+            u = x,  dv = sin(x)dx  →  v = −cos(x),  du = dx
+
+            ∫x·sin(x) dx = −x·cos(x) + sin(x) + C
+
+            [−x·cos(x)+sin(x)]₀^(π/2) = (0+1) − (0+0) = 1
+            """,
+            hint: "IBP: u=x, dv=sin(x)dx. Antiderivative is sin(x) − x·cos(x)."
+        ),
+
+        MathProblem(
+            displayPrimary: "∫ 2x·sin(x) dx",
+            lowerBound: "0", upperBound: "π/2",
+            answerType: .integer(2),
+            level: .advanced, category: .integral,
+            technique: "Integration by Parts",
+            explanation: """
+            2 · [sin(x) − x·cos(x)]₀^(π/2) = 2 · (1 − 0) = 2
+            """,
+            hint: "Twice the classic result ∫₀^(π/2) x·sin(x) dx = 1."
+        ),
+
+        MathProblem(
+            displayPrimary: "∫ 3x·sin(x) dx",
+            lowerBound: "0", upperBound: "π/2",
+            answerType: .integer(3),
+            level: .advanced, category: .integral,
+            technique: "Integration by Parts",
+            explanation: """
+            3 · [sin(x) − x·cos(x)]₀^(π/2) = 3 · 1 = 3
+            """,
+            hint: "3 × ∫₀^(π/2) x·sin(x) dx = 3 × 1."
+        ),
+
+        MathProblem(
+            displayPrimary: "∫ 4x·sin(x) dx",
+            lowerBound: "0", upperBound: "π/2",
+            answerType: .integer(4),
+            level: .advanced, category: .integral,
+            technique: "Integration by Parts",
+            explanation: """
+            4 · [sin(x) − x·cos(x)]₀^(π/2) = 4 · 1 = 4
+            """,
+            hint: "4 × ∫₀^(π/2) x·sin(x) dx = 4 × 1."
+        ),
+
+        MathProblem(
+            displayPrimary: "∫ x·cos(x) dx",
+            lowerBound: "0", upperBound: "π",
+            answerType: .integer(-2),
+            level: .advanced, category: .integral,
+            technique: "Integration by Parts",
+            explanation: """
+            u = x,  dv = cos(x)dx  →  v = sin(x),  du = dx
+
+            ∫x·cos(x) dx = x·sin(x) + cos(x) + C
+
+            [x·sin(x)+cos(x)]₀^π = (0−1) − (0+1) = −2
+            """,
+            hint: "IBP: u=x, dv=cos(x)dx. Antiderivative is x·sin(x)+cos(x). cos(π)=−1."
         ),
     ]
 

@@ -8,7 +8,8 @@
 //    1. Writes mg_pendingUnlock = true into the shared App Group UserDefaults.
 //    2. Returns .close to dismiss the shield.
 //    3. The user is returned to the home screen and taps the Integate icon.
-//    4. Integate reads hasPendingUnlockRequest on appear and shows a solve banner.
+//    4. Integate consumes the signal on launch/foreground (checkPendingUnlockSignal)
+//       and shows a solve banner for the rest of that session only.
 //
 //  REQUIRES in Xcode (this extension target):
 //    Linked Framework: ManagedSettings

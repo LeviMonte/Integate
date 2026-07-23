@@ -109,6 +109,20 @@ struct SettingsView: View {
                     .tint(.indigo)
                 }
 
+                // ── Timer Behavior ─────────────────────────
+                Section {
+                    Toggle(isOn: $screenTime.activeUseOnlyMode) {
+                        Label("Only count down while using apps", systemImage: "hourglass")
+                    }
+                    .tint(.indigo)
+                } header: {
+                    Text("Timer Behavior")
+                } footer: {
+                    Text(screenTime.activeUseOnlyMode
+                         ? "Earned time only depletes while you're actually in a blocked app. Leave it or lock your phone and the clock pauses."
+                         : "Earned time counts down continuously from the moment you solve a problem, whether or not you're using a blocked app.")
+                }
+
                 // ── App Blocking ──────────────────────────
                 Section("App Blocking") {
                     Button {
