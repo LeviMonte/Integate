@@ -22,12 +22,12 @@ Integate uses Apple's Screen Time API (FamilyControls) to block apps you choose.
 
 ## How it works
 
-1. First launch walks you straight into granting Screen Time permission and picking the apps/categories to block — no digging through Settings required
+1. First launch walks you straight into granting Screen Time permission and picking the apps/categories to block, no digging through Settings required
 2. (Or later: Integate → Settings → Manage Blocked Apps)
 3. When you open a blocked app, a shield appears: "Solve to Unlock"
 4. Tap "Open Integate →" → a notification fires → tap it → Integate opens with a problem ready
 5. Solve the problem → shields lift → you have earned time to use the app freely
-6. Timer runs out → apps re-lock automatically — enforced by Apple's FamilyControls/DeviceActivity APIs, not an honor system
+6. Timer runs out → apps re-lock automatically, which is enforced by Apple's FamilyControls/DeviceActivity APIs, not an honor system like earlier descriptions stated.
 
 ---
 
