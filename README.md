@@ -32,46 +32,6 @@ Integate uses Apple's Screen Time API (FamilyControls) to block apps you choose.
 
 ---
 
-## Setup (Xcode)
-
-See `FAMILYCONTROLS_SETUP.md` for the full step-by-step guide to add the FamilyControls capability and the two required app extension targets (`ShieldConfigurationExtension` and `ShieldActionExtension`).
-
-**Requirements:**
-- Xcode 15+
-- iOS 16+ deployment target
-- Apple Developer account (any tier)
-- Real iPhone for testing (FamilyControls does not work in Simulator)
-
----
-
-## Project structure
-
-```
-MathGate/
-├── MathGate/                      Main app target
-│   ├── MathGateApp.swift
-│   ├── ContentView.swift          Tab bar + Settings
-│   ├── Managers/
-│   │   ├── ScreenTimeManager.swift   FamilyControls + ManagedSettings
-│   │   ├── MathEngine.swift          Problem bank (200+ problems)
-│   │   └── StreakManager.swift
-│   ├── Models/
-│   │   ├── MathProblem.swift
-│   │   ├── UserProgress.swift
-│   │   └── LearningContent.swift     Rich topic data for the Learn tab
-│   └── Views/
-│       ├── UnlockView.swift          Main solve screen
-│       ├── LearningView.swift
-│       ├── AppPickerView.swift       FamilyActivityPicker wrapper
-│       ├── OnboardingView.swift
-│       └── ReportProblemView.swift
-├── ShieldConfigurationExtension/  Customizes the iOS block screen UI
-├── ShieldActionExtension/         Handles "Solve to Unlock" button tap
-└── FAMILYCONTROLS_SETUP.md        Xcode capability setup guide
-```
-
----
-
 ## Contact
 
 Levimonte18@gmail.com
