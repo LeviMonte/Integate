@@ -29,14 +29,14 @@
 			containerPortal = DB7A92A52FEAE0240038976B /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = DB7A92AC2FEAE0240038976B;
-			remoteInfo = MathGate;
+			remoteInfo = Integate;
 		};
 		DB7A92C72FEAE0260038976B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = DB7A92A52FEAE0240038976B /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = DB7A92AC2FEAE0240038976B;
-			remoteInfo = MathGate;
+			remoteInfo = Integate;
 		};
 		DBD79D4F3003E85D002E5CA6 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -73,7 +73,7 @@
 /* Begin PBXFileReference section */
 		DB1141BA30128585003E81EA /* DeviceActivityMonitorExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = DeviceActivityMonitorExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB1141BB30128585003E81EA /* DeviceActivity.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DeviceActivity.framework; path = System/Library/Frameworks/DeviceActivity.framework; sourceTree = SDKROOT; };
-		DB7A92AD2FEAE0240038976B /* Integates.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Integates.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		DB7A92AD2FEAE0240038976B /* Integate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Integate.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB7A92BC2FEAE0260038976B /* IntegateTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = IntegateTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB7A92C62FEAE0260038976B /* IntegateUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = IntegateUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB8096D9300872210068E94C /* Integate.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = Integate.xctestplan; sourceTree = "<group>"; };
@@ -116,19 +116,19 @@
 			path = DeviceActivityMonitorExtension;
 			sourceTree = "<group>";
 		};
-		DB7A92AF2FEAE0240038976B /* MathGate */ = {
+		DB7A92AF2FEAE0240038976B /* Integate */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			path = MathGate;
+			path = Integate;
 			sourceTree = "<group>";
 		};
-		DB7A92BF2FEAE0260038976B /* MathGateTests */ = {
+		DB7A92BF2FEAE0260038976B /* IntegateTests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			path = MathGateTests;
+			path = IntegateTests;
 			sourceTree = "<group>";
 		};
-		DB7A92C92FEAE0260038976B /* MathGateUITests */ = {
+		DB7A92C92FEAE0260038976B /* IntegateUITests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			path = MathGateUITests;
+			path = IntegateUITests;
 			sourceTree = "<group>";
 		};
 		DBD79D4A3003E85D002E5CA6 /* ShieldConfigExtension */ = {
@@ -203,9 +203,9 @@
 			isa = PBXGroup;
 			children = (
 				DB8096D9300872210068E94C /* Integate.xctestplan */,
-				DB7A92AF2FEAE0240038976B /* MathGate */,
-				DB7A92BF2FEAE0260038976B /* MathGateTests */,
-				DB7A92C92FEAE0260038976B /* MathGateUITests */,
+				DB7A92AF2FEAE0240038976B /* Integate */,
+				DB7A92BF2FEAE0260038976B /* IntegateTests */,
+				DB7A92C92FEAE0260038976B /* IntegateUITests */,
 				DBD79D4A3003E85D002E5CA6 /* ShieldConfigExtension */,
 				DBE575D03008679D00EE5B52 /* ShieldActionExtension */,
 				DB1141BD30128585003E81EA /* DeviceActivityMonitorExtension */,
@@ -217,7 +217,7 @@
 		DB7A92AE2FEAE0240038976B /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				DB7A92AD2FEAE0240038976B /* Integates.app */,
+				DB7A92AD2FEAE0240038976B /* Integate.app */,
 				DB7A92BC2FEAE0260038976B /* IntegateTests.xctest */,
 				DB7A92C62FEAE0260038976B /* IntegateUITests.xctest */,
 				DBD79D443003E85D002E5CA6 /* ShieldConfigExtension.appex */,
@@ -279,13 +279,13 @@
 				DB1141C330128585003E81EA /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
-				DB7A92AF2FEAE0240038976B /* MathGate */,
+				DB7A92AF2FEAE0240038976B /* Integate */,
 			);
 			name = Integate;
 			packageProductDependencies = (
 			);
-			productName = MathGate;
-			productReference = DB7A92AD2FEAE0240038976B /* Integates.app */;
+			productName = Integate;
+			productReference = DB7A92AD2FEAE0240038976B /* Integate.app */;
 			productType = "com.apple.product-type.application";
 		};
 		DB7A92BB2FEAE0260038976B /* IntegateTests */ = {
@@ -302,12 +302,12 @@
 				DB7A92BE2FEAE0260038976B /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
-				DB7A92BF2FEAE0260038976B /* MathGateTests */,
+				DB7A92BF2FEAE0260038976B /* IntegateTests */,
 			);
 			name = IntegateTests;
 			packageProductDependencies = (
 			);
-			productName = MathGateTests;
+			productName = IntegateTests;
 			productReference = DB7A92BC2FEAE0260038976B /* IntegateTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
@@ -325,12 +325,12 @@
 				DB7A92C82FEAE0260038976B /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
-				DB7A92C92FEAE0260038976B /* MathGateUITests */,
+				DB7A92C92FEAE0260038976B /* IntegateUITests */,
 			);
 			name = IntegateUITests;
 			packageProductDependencies = (
 			);
-			productName = MathGateUITests;
+			productName = IntegateUITests;
 			productReference = DB7A92C62FEAE0260038976B /* IntegateUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
@@ -558,7 +558,7 @@
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = DeviceActivityMonitorExtension/DeviceActivityMonitorExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = 6Z23ZPW362;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = DeviceActivityMonitorExtension/Info.plist;
@@ -569,7 +569,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.Monte.Integate.DeviceActivityMonitorExtension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -587,7 +587,7 @@
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = DeviceActivityMonitorExtension/DeviceActivityMonitorExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = 6Z23ZPW362;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = DeviceActivityMonitorExtension/Info.plist;
@@ -598,7 +598,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.Monte.Integate.DeviceActivityMonitorExtension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -646,7 +646,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEVELOPMENT_TEAM = QL9354UYQC;
+				DEVELOPMENT_TEAM = 6Z23ZPW362;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
@@ -664,7 +664,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 26.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -711,7 +711,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEVELOPMENT_TEAM = QL9354UYQC;
+				DEVELOPMENT_TEAM = 6Z23ZPW362;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
@@ -723,7 +723,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 26.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
@@ -739,7 +739,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = MathGate/MathGate.entitlements;
+				CODE_SIGN_ENTITLEMENTS = Integate/Integate.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = 6Z23ZPW362;
@@ -758,7 +758,7 @@
 				);
 				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.Monte.Integate;
-				PRODUCT_NAME = Integates;
+				PRODUCT_NAME = Integate;
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
 				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
@@ -774,7 +774,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = MathGate/MathGate.entitlements;
+				CODE_SIGN_ENTITLEMENTS = Integate/Integate.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = 6Z23ZPW362;
@@ -793,7 +793,7 @@
 				);
 				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.Monte.Integate;
-				PRODUCT_NAME = Integates;
+				PRODUCT_NAME = Integate;
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
 				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
@@ -809,12 +809,12 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = QL9354UYQC;
+				CURRENT_PROJECT_VERSION = 2;
+				DEVELOPMENT_TEAM = 6Z23ZPW362;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 26.5;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.LeviMonte.MathGateTests;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
+				MARKETING_VERSION = 1.1;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Monte.IntegateTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRING_CATALOG_GENERATE_SYMBOLS = NO;
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
@@ -831,12 +831,12 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = QL9354UYQC;
+				CURRENT_PROJECT_VERSION = 2;
+				DEVELOPMENT_TEAM = 6Z23ZPW362;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 26.5;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.LeviMonte.MathGateTests;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
+				MARKETING_VERSION = 1.1;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Monte.IntegateTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRING_CATALOG_GENERATE_SYMBOLS = NO;
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
@@ -852,11 +852,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = QL9354UYQC;
+				CURRENT_PROJECT_VERSION = 2;
+				DEVELOPMENT_TEAM = 6Z23ZPW362;
 				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.LeviMonte.MathGateUITests;
+				MARKETING_VERSION = 1.1;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Monte.IntegateUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRING_CATALOG_GENERATE_SYMBOLS = NO;
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
@@ -864,7 +864,7 @@
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = MathGate;
+				TEST_TARGET_NAME = Integate;
 			};
 			name = Debug;
 		};
@@ -872,11 +872,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = QL9354UYQC;
+				CURRENT_PROJECT_VERSION = 2;
+				DEVELOPMENT_TEAM = 6Z23ZPW362;
 				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.LeviMonte.MathGateUITests;
+				MARKETING_VERSION = 1.1;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Monte.IntegateUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRING_CATALOG_GENERATE_SYMBOLS = NO;
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
@@ -884,7 +884,7 @@
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = MathGate;
+				TEST_TARGET_NAME = Integate;
 			};
 			name = Release;
 		};

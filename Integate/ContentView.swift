@@ -53,6 +53,12 @@ struct SettingsView: View {
 
     private let capOptions = [5, 10, 15, 20, 30]
 
+    /// Read straight from the bundle so the About row can never drift out of
+    /// sync with MARKETING_VERSION the way a hardcoded string did.
+    private static var appVersion: String {
+        Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String ?? "—"
+    }
+
     var body: some View {
         NavigationStack {
             List {
@@ -173,7 +179,7 @@ struct SettingsView: View {
                 }
 
                 Section("About") {
-                    LabeledContent("Version", value: "1.0")
+                    LabeledContent("Version", value: Self.appVersion)
                     LabeledContent("Blocking", value: screenTime.isAuthorized ? "FamilyControls ✓" : "Not authorized")
                 }
             }

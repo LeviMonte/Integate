@@ -12,12 +12,12 @@ struct IntegateApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
-                .environmentObject(screenTime)
-                .environmentObject(streaks)
-                .environmentObject(progress)
                 .fullScreenCover(isPresented: Binding(
                     get: { !hasSeenOnboarding },
-                    set: { _ in }
+                    set: { newValue in
+                        // Only honor dismissal, never re-presentation.
+                        if !newValue { hasSeenOnboarding = true }
+                    }
                 )) {
                     OnboardingView { hasSeenOnboarding = true }
                 }
@@ -25,6 +25,12 @@ struct IntegateApp: App {
                     // Refresh authorization status each launch (in case user changed it in Settings)
                     screenTime.refreshAuthorizationStatus()
                 }
+                // Must be applied OUTSIDE .fullScreenCover so the presented
+                // OnboardingView inherits them too — presentation content only
+                // sees environment injected above the presentation modifier.
+                .environmentObject(screenTime)
+                .environmentObject(streaks)
+                .environmentObject(progress)
         }
     }
 }

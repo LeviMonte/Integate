@@ -16,7 +16,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "DB7A92AC2FEAE0240038976B"
-               BuildableName = "Integates.app"
+               BuildableName = "Integate.app"
                BlueprintName = "Integate"
                ReferencedContainer = "container:Integate.xcodeproj">
             </BuildableReference>
@@ -75,7 +75,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "DB7A92AC2FEAE0240038976B"
-            BuildableName = "Integates.app"
+            BuildableName = "Integate.app"
             BlueprintName = "Integate"
             ReferencedContainer = "container:Integate.xcodeproj">
          </BuildableReference>
@@ -92,7 +92,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "DB7A92AC2FEAE0240038976B"
-            BuildableName = "Integates.app"
+            BuildableName = "Integate.app"
             BlueprintName = "Integate"
             ReferencedContainer = "container:Integate.xcodeproj">
          </BuildableReference>
