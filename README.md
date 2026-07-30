@@ -18,6 +18,8 @@ Integate uses Apple's Screen Time API (FamilyControls) to block apps you choose.
 - **Timer behavior (optional)**: earned time either counts down continuously from the moment you solve, or — if you flip the "only count down while using apps" setting — only depletes while you're actually in a blocked app
 - **Report a problem** opens Mail pre-filled with problem context (OR JUST USE THIS GITHUB)
 
+8 Bugs fixed to date (7/29/26)
+
 ---
 
 ## How it works
